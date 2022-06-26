@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from 'react';
 import PopupWithForm from './PopupWithForm';
-import CurrentUserContext from "../context/CurrentUserContext"
+import CurrentUserContext from '../context/CurrentUserContext';
 
 function EditProfilePopup({ isOpen, onClose, onUpdateUser, isSaving }) {
   const currentUser = useContext(CurrentUserContext);
@@ -36,8 +36,8 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser, isSaving }) {
 
   return (
     <PopupWithForm
-      name="user"
-      title="Редактировать профиль"
+      name='user'
+      title='Редактировать профиль'
       textButton={isSaving ? 'Сохранение...' : 'Сохранить'}
       isOpen={isOpen}
       onClose={onClose}
@@ -46,34 +46,34 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser, isSaving }) {
       <input
         onChange={handleChangeName}
         defaultValue={currentUser.name}
-        id="name"
-        className="popup__input popup__input_field_name"
-        type="text"
-        name="Name"
-        placeholder="Имя"
-        minLength="2"
-        maxLength="40"
+        id='name'
+        className='popup__input popup__input_field_name'
+        type='text'
+        name='Name'
+        placeholder='Имя'
+        minLength='2'
+        maxLength='40'
         required
       />
       <span
-        id="name-error"
-        className="popup__input-error popup__input-error_number_one"
+        id='name-error'
+        className='popup__input-error popup__input-error_number_one'
       ></span>
       <input
         onChange={handleChangeDescription}
         defaultValue={currentUser.about}
-        id="job"
-        className="popup__input popup__input_field_job"
-        type="text"
-        name="Job"
-        placeholder="Профессиональная деятельность"
-        minLength="2"
-        maxLength="200"
+        id='job'
+        className='popup__input popup__input_field_job'
+        type='text'
+        name='Job'
+        placeholder='Профессиональная деятельность'
+        minLength='2'
+        maxLength='200'
         required
       />
       <span
-        id="job-error"
-        className="popup__input-error popup__input-error_number_two"
+        id='job-error'
+        className='popup__input-error popup__input-error_number_two'
       ></span>
     </PopupWithForm>
   )

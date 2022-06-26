@@ -30,8 +30,8 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace, isSaving }) {
 
   return (
     <PopupWithForm
-            name="card"
-            title="Новое место"
+            name='card'
+            title='Новое место'
             textButton={isSaving ? 'Создание...' : 'Создать'}
             isOpen={isOpen}
             onClose={onClose}
@@ -40,32 +40,32 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace, isSaving }) {
             <input
               onChange={handleChangePlace}
               value={place}
-              id="place"
-              className="popup__input popup__input_field_place"
-              type="text"
-              name="Place"
-              minLength="2"
-              maxLength="30"
-              placeholder="Название"
+              id='place'
+              className='popup__input popup__input_field_place'
+              type='text'
+              name='Place'
+              minLength='2'
+              maxLength='30'
+              placeholder='Название'
               required
             />
             <span
-              id="place-error"
-              className="popup__input-error popup__input-error_number_one"
+              id='place-error'
+              className='popup__input-error popup__input-error_number_one'
             ></span>
             <input
               onChange={handleChangeLink}
               value={link}
-              id="link"
-              className="popup__input popup__input_field_link"
-              type="url"
-              name="Link"
-              placeholder="Ссылка на картинку"
+              id='link'
+              className='popup__input popup__input_field_link'
+              type='url'
+              name='Link'
+              placeholder='Ссылка на картинку'
               required
             />
             <span
-              id="link-error"
-              className="popup__input-error popup__input-error_number_two"
+              id='link-error'
+              className='popup__input-error popup__input-error_number_two'
             ></span>
           </PopupWithForm>
   )

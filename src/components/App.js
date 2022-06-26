@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
-import Header from "./Header";
-import Main from "./Main";
-import Footer from "./Footer";
-import ImagePopup from "./ImagePopup";
-import EditAvatarPopup from "./EditAvatarPopup";
-import EditProfilePopup from "./EditProfilePopup";
-import AddPlacePopup from "./AddPlacePopup"
-import DeleteCardPopup from  "./DeleteCardPopup";
-import { api } from "../utils/Api";
-import CurrentUserContext from "../context/CurrentUserContext";
+import { useEffect, useState } from 'react';
+import Header from './Header';
+import Main from './Main';
+import Footer from './Footer';
+import ImagePopup from './ImagePopup';
+import EditAvatarPopup from './EditAvatarPopup';
+import EditProfilePopup from './EditProfilePopup';
+import AddPlacePopup from './AddPlacePopup';
+import DeleteCardPopup from  './DeleteCardPopup';
+import { api } from '../utils/Api';
+import CurrentUserContext from '../context/CurrentUserContext';
 
 function App() {
   const [currentUser, setUser] =  useState({});
@@ -106,7 +106,7 @@ function App() {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-        <div className="content">
+        <div className='content'>
           <Header />
           <Main
             cards={currentCards}

@@ -9,8 +9,8 @@ function DeleteCardPopup({ card, isOpen, onClose, deleteCard, isSaving }) {
 
   return (
     <PopupWithForm 
-      name="confirm" 
-      title="Вы уверены?"
+      name='confirm'
+      title='Вы уверены?'
       textButton={isSaving ? 'Удаление...' : 'Да'}
       isOpen={isOpen}
       onClose={onClose}
