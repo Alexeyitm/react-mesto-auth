@@ -1,0 +1,7 @@
+.popup__button-add_invalid {
+  opacity: .2;
+  background-color: #FFFFFF;
+  cursor: auto;
+  color: #000000;
+  border: 1px solid #000000;
+}

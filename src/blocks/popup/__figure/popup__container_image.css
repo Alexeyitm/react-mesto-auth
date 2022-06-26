@@ -1,0 +1,12 @@
+.popup__figure {
+  max-width: 75vw;
+  max-height: 75vh;
+  box-sizing: border-box;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  background-color: transparent;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, .15);
+}

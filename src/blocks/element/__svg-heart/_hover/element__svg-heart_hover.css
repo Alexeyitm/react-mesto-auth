@@ -1,0 +1,4 @@
+.element__svg-heart_hover:hover {
+  opacity: .5;
+  cursor: pointer;
+}

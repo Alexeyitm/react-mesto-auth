@@ -1,0 +1,15 @@
+.popup__content {
+  width: 358px;
+  height: 259px;
+  margin-top: 34px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 320px) and (max-width: 1280px) {
+  .popup__content {
+    width: calc(238px + (358 - 238) * (100vw - 320px) / (1280 - 320));
+    height: calc(272px + (259 - 272) * (100vw - 320px) / (1280 - 320));
+    margin-top: calc(25px + (34 - 25) * (100vw - 320px) / (1280 - 320));
+  }
+}

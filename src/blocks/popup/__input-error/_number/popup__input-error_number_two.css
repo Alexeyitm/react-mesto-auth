@@ -1,0 +1,9 @@
+.popup__input-error_number_two {
+  margin-top: 134px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 1280px) {
+  .popup__input-error_number_two {
+    margin-top: calc(155px + (134 - 155) * (100vw - 320px) / (1280 - 320));
+  }
+}

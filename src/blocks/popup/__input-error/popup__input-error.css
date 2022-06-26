@@ -1,0 +1,16 @@
+.popup__input-error {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FF0000;
+  position: absolute;
+  max-width: 358px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 1280px) {
+  .popup__input-error {
+    max-width: calc(238px + (358 - 238) * (100vw - 320px) / (1280 - 320));
+  }
+}

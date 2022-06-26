@@ -1,0 +1,48 @@
+.profile__button-edit {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 9px;
+  padding: 0;
+  position: relative;
+  display: flex;
+  align-self: flex-end;
+  background-color: #000000;
+  border: 1px solid #FFFFFF;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.profile__button-edit:hover {
+  opacity: .6;
+}
+
+.profile__button-edit:after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  background: url('../../../image/Vector-pen.svg') no-repeat;
+  background-size: contain;
+}
+
+@media screen and (max-width: 767px) {
+  .profile__button-edit {
+    width: 18px;
+    height: 18px;
+    margin-bottom: 5px;
+    position: absolute;
+    bottom: 0;
+    right: -27px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .profile__button-edit:after {
+    width: 7.5px;
+    height: 7.5px;
+    top: 4.25px;
+    left: 4.25px;
+  }
+}

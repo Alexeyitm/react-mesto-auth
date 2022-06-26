@@ -1,0 +1,21 @@
+.profile__author {
+  max-width: 336px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .profile__author {
+    max-width: calc(189px + (336 - 189) * (100vw - 320px) / (768 - 320));
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .profile__author {
+    margin: 0 auto;
+    position: relative;
+    justify-content: center;
+    text-align: center;
+  }
+}

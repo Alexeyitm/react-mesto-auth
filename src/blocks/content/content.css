@@ -1,0 +1,13 @@
+.content {
+  max-width: 1280px;
+  min-width: 320px;
+  margin: 0 auto;
+  padding: 45px 0 56px;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+@media screen and (min-width: 320px) and (max-width: 1024px) {
+  .content {
+    padding: calc(28px + (45 - 28) * (100vw - 320px) / (1024 - 320)) 0 calc(32px + (56 - 32) * (100vw - 320px) / (1024 - 320));
+  }
+}

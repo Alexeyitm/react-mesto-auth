@@ -1,0 +1,9 @@
+.element__card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+}

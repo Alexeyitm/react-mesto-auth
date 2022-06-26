@@ -1,0 +1,28 @@
+.profile__text {
+  max-width: 336px;
+  margin: 8px 0 0 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: #FFFFFF;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .profile__text {
+    max-width: calc(282px + (336 - 282) * (100vw - 320px) / (768 - 320));
+    margin-top: calc(10px + (8 - 10) * (100vw - 320px) / (768 - 320));
+    font-size: calc(14px + (18 - 14) * (100vw - 320px) / (768 - 320));
+    line-height: calc(17px + (22 - 17) * (100vw - 320px) / (768 - 320));
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .profile__text {
+    margin: 10px auto 0;
+    text-align: center;
+  }
+}
