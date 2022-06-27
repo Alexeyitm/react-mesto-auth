@@ -1,10 +1,10 @@
 import React from 'react';
 import Header from './Header';
 
-function SignUp() {
+function Register() {
   return (
     <Header />
   )
 };
 
-export default SignUp;
+export default Register;

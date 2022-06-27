@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import MainPage from './MainPage';
-import SignIn from './SignIn';
-import SignUp from './SignUp';
+import Login from './Login';
+import Register from './Register';
 import ImagePopup from './ImagePopup';
 import EditAvatarPopup from './EditAvatarPopup';
 import EditProfilePopup from './EditProfilePopup';
@@ -112,18 +112,20 @@ function App() {
         <div className='content'>
           <Routes>
             <Route path='/'
-              element={loggedIn ? <MainPage
-              cards={currentCards}
-              onEditAvatar={handleClickEditAvatar}
-              onEditProfile={handleClickEditProfile}
-              onCardLike={handleCardLike}
-              onCardDelete={handleClickDeleteCard}
-              onAddPlace={handleClickAddPlace}
-              handleCardClick={handleCardClick}
-              setCards={setCards}/> : <Navigate to='/sign-in' replace />}
+              element={loggedIn ? 
+                <MainPage
+                  cards={currentCards}
+                  onEditAvatar={handleClickEditAvatar}
+                  onEditProfile={handleClickEditProfile}
+                  onCardLike={handleCardLike}
+                  onCardDelete={handleClickDeleteCard}
+                  onAddPlace={handleClickAddPlace}
+                  handleCardClick={handleCardClick}
+                  setCards={setCards}
+                /> : <Navigate to='/sign-in' replace />}
             />
-            <Route path='/sign-up' element={<SignUp />} />
-            <Route path='/sign-in' element={<SignIn />} />
+            <Route path='/sign-in' element={<Login />} />
+            <Route path='/sign-up' element={<Register />} />
           </Routes>
           <EditAvatarPopup 
             isOpen={isEditAvatarPopupOpen} 

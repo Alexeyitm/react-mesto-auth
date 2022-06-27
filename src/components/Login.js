@@ -1,10 +1,10 @@
 import React from 'react';
 import Header from './Header';
 
-function SignIn() {
+function Login() {
   return (
     <Header />
   )
 };
 
-export default SignIn;
+export default Login;
