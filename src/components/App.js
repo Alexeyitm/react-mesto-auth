@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import Header from './Header';
-import Main from './Main';
-import Footer from './Footer';
+import { Routes, Route, Redirect } from 'react-router-dom';
+import MainPage from './MainPage';
+import SignIn from './SignIn';
+import SignUp from './SignUp';
 import ImagePopup from './ImagePopup';
 import EditAvatarPopup from './EditAvatarPopup';
 import EditProfilePopup from './EditProfilePopup';
@@ -19,6 +20,8 @@ function App() {
   const [isDeleteCardPopupOpen, deleteIsCardPopup] = useState({isOpen: false, card: {}});
   const [selectedCard, setIsSelectedCard] = useState({});
   const [isSaving, setIsSaving] = useState(false);
+
+  const [loggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     Promise.all([api.getUser(), api.getCards()])
@@ -107,18 +110,20 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
         <div className='content'>
-          <Header />
-          <Main
-            cards={currentCards}
-            onEditAvatar={handleClickEditAvatar}
-            onEditProfile={handleClickEditProfile}
-            onCardLike={handleCardLike}
-            onCardDelete={handleClickDeleteCard}
-            onAddPlace={handleClickAddPlace}
-            handleCardClick={handleCardClick}
-            setCards={setCards}
-          />
-          <Footer />
+          <Routes>
+            <Route path='/' element={<MainPage
+              cards={currentCards}
+              onEditAvatar={handleClickEditAvatar}
+              onEditProfile={handleClickEditProfile}
+              onCardLike={handleCardLike}
+              onCardDelete={handleClickDeleteCard}
+              onAddPlace={handleClickAddPlace}
+              handleCardClick={handleCardClick}
+              setCards={setCards}/>}
+            />
+            <Route path='/sign-up' element={<SignUp />} />
+            <Route path='/sign-in' element={<SignIn />} />
+          </Routes>
           <EditAvatarPopup 
             isOpen={isEditAvatarPopupOpen} 
             onClose={closeAllPopups}
