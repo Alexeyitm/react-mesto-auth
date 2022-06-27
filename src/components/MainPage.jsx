@@ -6,7 +6,7 @@ import Footer from './Footer';
 function MainPage({ cards, onEditAvatar, onEditProfile, onCardLike, onCardDelete, onAddPlace, handleCardClick, setCards }) {
   return (
     <>
-      <Header />
+      <Header textLink='Выйти'/>
       <Main
         cards={cards}
         onEditAvatar={onEditAvatar}

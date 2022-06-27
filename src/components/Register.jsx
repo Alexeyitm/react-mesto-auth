@@ -3,7 +3,7 @@ import Header from './Header';
 
 function Register() {
   return (
-    <Header />
+    <Header textLink='Регистрация'/>
   )
 };
 
