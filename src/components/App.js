@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Routes, Route, Redirect } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import MainPage from './MainPage';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
@@ -111,7 +111,8 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
         <div className='content'>
           <Routes>
-            <Route path='/' element={<MainPage
+            <Route path='/'
+              element={loggedIn ? <MainPage
               cards={currentCards}
               onEditAvatar={handleClickEditAvatar}
               onEditProfile={handleClickEditProfile}
@@ -119,7 +120,7 @@ function App() {
               onCardDelete={handleClickDeleteCard}
               onAddPlace={handleClickAddPlace}
               handleCardClick={handleCardClick}
-              setCards={setCards}/>}
+              setCards={setCards}/> : <Navigate to='/sign-in' replace />}
             />
             <Route path='/sign-up' element={<SignUp />} />
             <Route path='/sign-in' element={<SignIn />} />
