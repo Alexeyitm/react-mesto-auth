@@ -23,7 +23,7 @@ function App() {
   const [selectedCard, setIsSelectedCard] = useState({});
   const [isSaving, setIsSaving] = useState(false);
 
-  const [loggedIn, setIsLoggedIn] = useState(true);
+  const [loggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     Promise.all([api.getUser(), api.getCards()])
@@ -112,12 +112,13 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
         <div className='content'>
+
           <Header/>
 
           <Routes>
-            <Route 
+            <Route
               path='/'
-              element={loggedIn ? 
+              element={loggedIn ?
                 <Main
                   cards={currentCards}
                   onEditAvatar={handleClickEditAvatar}
@@ -127,7 +128,8 @@ function App() {
                   onAddPlace={handleClickAddPlace}
                   handleCardClick={handleCardClick}
                   setCards={setCards}
-                /> : <Navigate to='/sign-in' replace />}
+                /> : <Navigate to='/sign-in' replace />
+              }
             />
             <Route path='/sign-in' element={<Login />} />
             <Route path='/sign-up' element={<Register />} />
