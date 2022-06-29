@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import MainPage from './MainPage';
+import Header from './Header';
+import Footer from './Footer';
+import Main from './Main';
 import Login from './Login';
 import Register from './Register';
 import ImagePopup from './ImagePopup';
@@ -21,7 +23,7 @@ function App() {
   const [selectedCard, setIsSelectedCard] = useState({});
   const [isSaving, setIsSaving] = useState(false);
 
-  const [loggedIn, setIsLoggedIn] = useState(false);
+  const [loggedIn, setIsLoggedIn] = useState(true);
 
   useEffect(() => {
     Promise.all([api.getUser(), api.getCards()])
@@ -110,10 +112,13 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
         <div className='content'>
+          <Header/>
+
           <Routes>
-            <Route path='/'
+            <Route 
+              path='/'
               element={loggedIn ? 
-                <MainPage
+                <Main
                   cards={currentCards}
                   onEditAvatar={handleClickEditAvatar}
                   onEditProfile={handleClickEditProfile}
@@ -127,6 +132,9 @@ function App() {
             <Route path='/sign-in' element={<Login />} />
             <Route path='/sign-up' element={<Register />} />
           </Routes>
+
+          <Footer />
+
           <EditAvatarPopup 
             isOpen={isEditAvatarPopupOpen} 
             onClose={closeAllPopups}
