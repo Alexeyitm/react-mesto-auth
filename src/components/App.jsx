@@ -5,12 +5,13 @@ import Footer from './Footer';
 import Main from './Main';
 import Login from './Login';
 import Register from './Register';
+import Error from './Error';
 import ImagePopup from './ImagePopup';
 import EditAvatarPopup from './EditAvatarPopup';
 import EditProfilePopup from './EditProfilePopup';
 import AddPlacePopup from './AddPlacePopup';
 import DeleteCardPopup from  './DeleteCardPopup';
-import { api } from '../utils/Api';
+import { api } from '../utils/api';
 import CurrentUserContext from '../context/CurrentUserContext';
 
 function App() {
@@ -117,6 +118,7 @@ function App() {
 
           <Routes>
             <Route
+              exact
               path='/'
               element={loggedIn ?
                 <Main
@@ -133,6 +135,7 @@ function App() {
             />
             <Route path='/sign-in' element={<Login />} />
             <Route path='/sign-up' element={<Register />} />
+            <Route path='/*' element={<Error />} />
           </Routes>
 
           <Footer />

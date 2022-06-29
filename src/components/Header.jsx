@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route, NavLink } from 'react-router-dom';
 import logo from '../image/Vector.svg';
 
-function Header({ textLink }) {
+function Header() {
   return (
     <header className='header'>
       <img className='header__logo' src={logo} alt='Логотип'/>
@@ -11,11 +11,11 @@ function Header({ textLink }) {
           path='/'
           element={<NavLink className='header__link' to='/sign-in'>Выйти</NavLink>}
         />
-                <Route 
+        <Route 
           path='/sign-in'
           element={<NavLink className='header__link' to='/sign-up'>Регистрация</NavLink>}
         />
-                <Route 
+        <Route 
           path='/sign-up'
           element={<NavLink className='header__link' to='/sign-in'>Войти</NavLink>}
         />

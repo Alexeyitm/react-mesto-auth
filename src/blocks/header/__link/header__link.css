@@ -1,5 +1,5 @@
 .header__link {
-  margin-bottom: 46px;
+  margin-top: 7px;
   text-decoration: none;
   font-style: normal;
   font-weight: 400;
@@ -7,7 +7,6 @@
   line-height: 22px;
   text-align: right;
   color: #FFFFFF;
-  height: max-content;
   cursor: pointer;
 }
 
@@ -17,8 +16,7 @@
 
 @media screen and (min-width: 320px) and (max-width: 1280px) {
   .header__link {
-    margin-bottom: calc(33px + (46 - 33) * (100vw - 320px) / (1280 - 320));
-    margin-right: calc(30px + (0 - 30) * (100vw - 320px) / (1024 - 320));
+    margin-right: calc(30px + (0 - 30) * (100vw - 320px) / (1280 - 320));
     font-size: calc(14px + (18 - 14) * (100vw - 320px) / (1280 - 320));
     line-height: calc(17px + (22- 17) * (100vw - 320px) / (1280 - 320));
   }
@@ -26,7 +24,6 @@
 
 @media screen and (max-width: 320px) {
   .header__link {
-    margin-bottom: 33px;
     margin-right: 30px;
     font-size: 14px;
     line-height: 17px;
