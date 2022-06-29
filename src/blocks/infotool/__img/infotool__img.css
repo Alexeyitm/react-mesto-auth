@@ -1,0 +1,18 @@
+.infotool__img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 1280px) {
+  .infotool__img {
+    margin-top: calc(50px + (60 - 50) * (100vw - 320px) / (1280 - 320));
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .infotool__img {
+    margin-top: 50px;
+  }
+}

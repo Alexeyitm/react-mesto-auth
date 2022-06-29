@@ -46,16 +46,6 @@
 @import url(./blocks/footer/footer.css);
 @import url(./blocks/footer/__copyright/footer__copyright.css);
 
-/* Auth */
-@import url(./blocks/auth/auth.css);
-@import url(./blocks/auth/__title/auth__title.css);
-@import url(./blocks/auth/__form/auth__form.css);
-@import url(./blocks/auth/__input/auth__input.css);
-@import url(./blocks/auth/__button/auth__button.css);
-@import url(./blocks/auth/__text/auth__text.css);
-@import url(./blocks/auth/__link/auth__link.css);
-
-
 /* Popup */
 @import url(./blocks/popup/popup.css);
 @import url(./blocks/popup/_opened/popup_opened.css);
@@ -79,6 +69,23 @@
 @import url(./blocks/popup/__figure/popup__container_image.css);
 @import url(./blocks/popup/__figcaption/popup__figcaption.css);
 @import url(./blocks/popup/__picture/popup__picture.css);
+
+/* Auth */
+@import url(./blocks/auth/auth.css);
+@import url(./blocks/auth/__title/auth__title.css);
+@import url(./blocks/auth/__form/auth__form.css);
+@import url(./blocks/auth/__input/auth__input.css);
+@import url(./blocks/auth/__button/auth__button.css);
+@import url(./blocks/auth/__text/auth__text.css);
+@import url(./blocks/auth/__link/auth__link.css);
+
+/* Infotool */
+@import url(./blocks/infotool/infotool.css);
+@import url(./blocks/infotool/__background/infotool__background.css);
+@import url(./blocks/infotool/__container/infotool__container.css);
+@import url(./blocks/infotool/__button-close/infotool__button-close.css);
+@import url(./blocks/infotool/__img/infotool__img.css);
+@import url(./blocks/infotool/__text/infotool__text.css);
 
 /* Error */
 @import url(./blocks/error/error.css);
