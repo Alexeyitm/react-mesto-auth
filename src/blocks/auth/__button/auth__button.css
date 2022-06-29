@@ -1,0 +1,32 @@
+.auth__button {
+  width: 100%;
+  height: 50px;
+  margin-top: 216px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  background-color: #FFFFFF;
+  border: 0;
+  border-radius: 2px;
+  text-align: center;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
+  padding-top: 14px;
+}
+
+.auth__button:hover:enabled {
+  opacity: .8;
+}
+
+@media screen and (min-width: 320px) and (max-width: 1280px) {
+  .auth__button {
+    height: calc(46px + (50 - 46) * (100vw - 320px) / (1280 - 320));
+    font-size: calc(16px + (18 - 16) * (100vw - 320px) / (1280 - 320));
+    line-height: calc(19px + (22 - 19) * (100vw - 320px) / (1280 - 320));
+    margin-top: calc(173px + (216 - 173) * (100vw - 320px) / (1280 - 320));
+  }
+}

@@ -1,0 +1,15 @@
+.auth__text {
+  margin-top: 15px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+@media screen and (min-width: 320px) and (max-width: 1280px) {
+  .auth__text {
+    margin-top: calc(20px + (15 - 20) * (100vw - 320px) / (1280 - 320));
+  }
+}

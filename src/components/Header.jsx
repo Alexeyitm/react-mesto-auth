@@ -7,10 +7,7 @@ function Header() {
     <header className='header'>
       <img className='header__logo' src={logo} alt='Логотип'/>
       <Routes>
-        <Route 
-          path='/'
-          element={<NavLink className='header__link' to='/sign-in'>Выйти</NavLink>}
-        />
+
         <Route 
           path='/sign-in'
           element={<NavLink className='header__link' to='/sign-up'>Регистрация</NavLink>}
@@ -18,6 +15,10 @@ function Header() {
         <Route 
           path='/sign-up'
           element={<NavLink className='header__link' to='/sign-in'>Войти</NavLink>}
+        />
+        <Route 
+          path='/'
+          element={<NavLink className='header__link' to='/sign-in'>Выйти</NavLink>}
         />
       </Routes>
     </header>

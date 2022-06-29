@@ -24,7 +24,7 @@ function App() {
   const [selectedCard, setIsSelectedCard] = useState({});
   const [isSaving, setIsSaving] = useState(false);
 
-  const [loggedIn, setIsLoggedIn] = useState(false);
+  const [loggedIn, setIsLoggedIn] = useState(true);
 
   useEffect(() => {
     Promise.all([api.getUser(), api.getCards()])
@@ -117,8 +117,10 @@ function App() {
           <Header/>
 
           <Routes>
+            <Route path='/sign-in' element={<Login />} />
+            <Route path='/sign-up' element={<Register />} />
+            <Route path='/*' element={<Error />} />
             <Route
-              exact
               path='/'
               element={loggedIn ?
                 <Main
@@ -130,12 +132,10 @@ function App() {
                   onAddPlace={handleClickAddPlace}
                   handleCardClick={handleCardClick}
                   setCards={setCards}
-                /> : <Navigate to='/sign-in' replace />
+                /> : <Navigate to='sign-in' replace />
               }
             />
-            <Route path='/sign-in' element={<Login />} />
-            <Route path='/sign-up' element={<Register />} />
-            <Route path='/*' element={<Error />} />
+
           </Routes>
 
           <Footer />
