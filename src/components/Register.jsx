@@ -1,11 +1,11 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import InfoToolPopup from './InfoToolPopup';
 
 function Register() {
   return (
     <div className='auth'>
-      <InfoToolPopup isRegistration={true}/>
+      {/*<InfoToolPopup isRegistration={true}/>*/}
       <h2 className='auth__title'>Регистрация</h2>
       <form
         //onSubmit={onSubmit}
@@ -35,7 +35,7 @@ function Register() {
       >Зарегистрироваться</button>
       </form>
       <p className='auth__text'>Уже зарегистрированы? 
-        <NavLink className='auth__link' to='/sign-in'> Войти</NavLink>
+        <Link className='auth__link' to='/sign-in'> Войти</Link>
       </p>
     </div>
   )

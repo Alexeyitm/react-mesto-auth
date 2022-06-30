@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import Main from './Main';
@@ -24,7 +24,7 @@ function App() {
   const [selectedCard, setIsSelectedCard] = useState({});
   const [isSaving, setIsSaving] = useState(false);
 
-  const [loggedIn, setIsLoggedIn] = useState(true);
+  const [loggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     Promise.all([api.getUser(), api.getCards()])
@@ -116,13 +116,9 @@ function App() {
 
           <Header/>
 
-          <Routes>
-            <Route path='/sign-in' element={<Login />} />
-            <Route path='/sign-up' element={<Register />} />
-            <Route path='/*' element={<Error />} />
-            <Route
-              path='/'
-              element={loggedIn ?
+          <Switch>
+            <Route exact path='/'>
+              {loggedIn ?
                 <Main
                   cards={currentCards}
                   onEditAvatar={handleClickEditAvatar}
@@ -132,11 +128,20 @@ function App() {
                   onAddPlace={handleClickAddPlace}
                   handleCardClick={handleCardClick}
                   setCards={setCards}
-                /> : <Navigate to='sign-in' replace />
+                /> : <Redirect to='/sign-in' />
               }
-            />
+            </Route>
+            <Route exact path='/sign-in'>
+              <Login />
+            </Route>
+            <Route exact path='/sign-up'>
+              <Register />
+            </Route>
+            <Route path='/*'>
+              <Error />
+            </Route>
 
-          </Routes>
+          </Switch>
 
           <Footer />
 
