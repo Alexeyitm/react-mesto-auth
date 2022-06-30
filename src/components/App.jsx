@@ -132,10 +132,10 @@ function App() {
               handleCardClick={handleCardClick}
               setCards={setCards}
             />
-            <Route exact path='/sign-in'>
+            <Route exact path='/signin'>
               <Login />
             </Route>
-            <Route exact path='/sign-up'>
+            <Route exact path='/signup'>
               <Register />
             </Route>
             <Route path='/*'>

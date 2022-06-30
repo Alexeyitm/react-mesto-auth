@@ -8,13 +8,13 @@ function Header() {
       <img className='header__logo' src={logo} alt='Логотип'/>
       <Switch>
         <Route path='/sign-in'>
-          <Link className='header__link' to='/sign-up'>Регистрация</Link>
+          <Link className='header__link' to='/signup'>Регистрация</Link>
         </Route>
         <Route path='/sign-up'>
-          <Link className='header__link' to='/sign-in'>Войти</Link>
+          <Link className='header__link' to='/signin'>Войти</Link>
         </Route>
         <Route path='/'>
-          <Link className='header__link' to='/sign-in'>Выйти</Link>
+          <Link className='header__link' to='/signin'>Выйти</Link>
         </Route>
       </Switch>
     </header>

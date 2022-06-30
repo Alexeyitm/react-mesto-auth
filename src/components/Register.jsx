@@ -35,7 +35,7 @@ function Register() {
       >Зарегистрироваться</button>
       </form>
       <p className='auth__text'>Уже зарегистрированы? 
-        <Link className='auth__link' to='/sign-in'> Войти</Link>
+        <Link className='auth__link' to='/signin'> Войти</Link>
       </p>
     </div>
   )
