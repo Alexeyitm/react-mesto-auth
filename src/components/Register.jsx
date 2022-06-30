@@ -1,32 +1,53 @@
-import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import InfoToolPopup from './InfoToolPopup';
 
 function Register() {
+
+  const [data, setData] = useState({
+    email: '',
+    password: '',
+  });
+
+  const handleChange = (e) => {
+    const {name, value} = e.target;
+    setData({
+      ...data,
+      [name]: value
+    });
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(data)
+  }
+
   return (
     <div className='auth'>
       {/*<InfoToolPopup isRegistration={true}/>*/}
       <h2 className='auth__title'>Регистрация</h2>
       <form
-        //onSubmit={onSubmit}
+        onSubmit={handleSubmit}
         className='auth__form'
         name='FormLogin'
         noValidate
       >
         <input
-          //onChange={handleChangeName}
+          onChange={handleChange}
           className='auth__input'
           id='email'
           type='email'
-          name='Email'
+          value={data.email}
+          name='email'
           placeholder='Email'
         />
         <input
-          //onChange={handleChangeDescription}
+          onChange={handleChange}
           className='auth__input'
           id='password'
           type='password'
-          name='Password'
+          value={data.password}
+          name='password'
           placeholder='Пароль'
         />
       <button
