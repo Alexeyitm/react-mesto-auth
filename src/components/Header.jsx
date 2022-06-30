@@ -7,10 +7,10 @@ function Header() {
     <header className='header'>
       <img className='header__logo' src={logo} alt='Логотип'/>
       <Switch>
-        <Route path='/sign-in'>
+        <Route path='/signin'>
           <Link className='header__link' to='/signup'>Регистрация</Link>
         </Route>
-        <Route path='/sign-up'>
+        <Route path='/signup'>
           <Link className='header__link' to='/signin'>Войти</Link>
         </Route>
         <Route path='/'>
