@@ -11,6 +11,7 @@ import EditAvatarPopup from './EditAvatarPopup';
 import EditProfilePopup from './EditProfilePopup';
 import AddPlacePopup from './AddPlacePopup';
 import DeleteCardPopup from  './DeleteCardPopup';
+import ProtectedRoute from './ProtectedRoute';
 import { api } from '../utils/api';
 import CurrentUserContext from '../context/CurrentUserContext';
 
@@ -117,20 +118,20 @@ function App() {
           <Header/>
 
           <Switch>
-            <Route exact path='/'>
-              {loggedIn ?
-                <Main
-                  cards={currentCards}
-                  onEditAvatar={handleClickEditAvatar}
-                  onEditProfile={handleClickEditProfile}
-                  onCardLike={handleCardLike}
-                  onCardDelete={handleClickDeleteCard}
-                  onAddPlace={handleClickAddPlace}
-                  handleCardClick={handleCardClick}
-                  setCards={setCards}
-                /> : <Redirect to='/sign-in' />
-              }
-            </Route>
+            <ProtectedRoute
+              exact
+              path='/'
+              loggedIn={loggedIn}
+              component={Main}
+              cards={currentCards}
+              onEditAvatar={handleClickEditAvatar}
+              onEditProfile={handleClickEditProfile}
+              onCardLike={handleCardLike}
+              onCardDelete={handleClickDeleteCard}
+              onAddPlace={handleClickAddPlace}
+              handleCardClick={handleCardClick}
+              setCards={setCards}
+            />
             <Route exact path='/sign-in'>
               <Login />
             </Route>
