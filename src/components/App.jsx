@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { Switch, Route, Redirect, useHistory } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
@@ -42,10 +42,6 @@ function App() {
       })
       .catch((err) => console.log(err));
   }, []);
-
-  useEffect(() => {
-    checkToken()
-  }, [])
 
   const handleClickEditAvatar = () => {
     setIsAvatarPopup(true);
@@ -161,7 +157,7 @@ function App() {
       .catch(err => console.log(err))
   }
 
-  const checkToken = () => {
+  const checkToken = useCallback(() => {
     const jwt = localStorage.getItem('jwt');
     if (jwt){
       auth
@@ -172,7 +168,12 @@ function App() {
           }
         }); 
     }
-  }
+  }, [history])
+
+  useEffect(() => {
+    checkToken()
+  }, [checkToken])
+
 
   const handleSignOut = () => {
     localStorage.removeItem('jwt');
