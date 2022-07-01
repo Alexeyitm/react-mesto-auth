@@ -15,7 +15,6 @@ import DeleteCardPopup from  './DeleteCardPopup';
 import ProtectedRoute from './ProtectedRoute';
 import { api } from '../utils/api';
 import { auth } from '../utils/auth';
-//import { authorize, register, getContent } from '../utils/auth';
 import CurrentUserContext from '../context/CurrentUserContext';
 
 function App() {
@@ -171,11 +170,15 @@ function App() {
     }
   }
 
+  function handleSignOut() {
+    localStorage.removeItem('jwt');
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
         <div className='content'>
 
-          <Header/>
+          <Header handleSignOut={handleSignOut}/>
 
           <Switch>
             <ProtectedRoute

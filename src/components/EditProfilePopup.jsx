@@ -5,33 +5,62 @@ import CurrentUserContext from '../context/CurrentUserContext';
 function EditProfilePopup({ isOpen, onClose, onUpdateUser, isSaving }) {
   const currentUser = useContext(CurrentUserContext);
   
-  const [name, setName] =  useState('');
-  const [description, setDescription] =  useState('');
+  //const [name, setName] =  useState('');
+  //const [description, setDescription] =  useState('');
+//
+  //useEffect(() => {
+  //  setName(currentUser.name);
+  //  setDescription(currentUser.about);
+  //}, [currentUser]);
+//
+  //function handleSubmit(e) {
+  //  e.preventDefault();
+  //  onUpdateUser({
+  //    name,
+  //    about: description,
+  //  });
+  //}
+
+  //useEffect(() => {
+  //  setName('');
+  //  setDescription('');
+  //}, [isOpen]); 
+//
+  //function handleChangeName(e) {
+  //  setName(e.target.value);
+  //}
+//
+  //function handleChangeDescription(e) {
+  //  setDescription(e.target.value);
+  //}
+
+  const [user, setUser] = useState({
+    name: '',
+    about: '',
+  });
 
   useEffect(() => {
-    setName(currentUser.name);
-    setDescription(currentUser.about);
+    setUser(currentUser);
   }, [currentUser]);
 
   function handleSubmit(e) {
     e.preventDefault();
-    onUpdateUser({
-      name,
-      about: description,
-    });
+    onUpdateUser(user);
   }
 
   useEffect(() => {
-    setName('');
-    setDescription('');
-  }, [isOpen]); 
+    setUser({
+      name: currentUser.name,
+      about: currentUser.about,
+    });
+  }, [isOpen, currentUser]); 
 
-  function handleChangeName(e) {
-    setName(e.target.value);
-  }
-
-  function handleChangeDescription(e) {
-    setDescription(e.target.value);
+  const handleChange = (e) => {
+    const {name, value} = e.target;
+    setUser({
+      ...user,
+      [name]: value
+    });
   }
 
   return (
@@ -44,12 +73,12 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser, isSaving }) {
       onSubmit={handleSubmit}
     >
       <input
-        onChange={handleChangeName}
+        onChange={handleChange}//Name}
         defaultValue={currentUser.name}
         id='name'
         className='popup__input popup__input_field_name'
         type='text'
-        name='Name'
+        name='name'
         placeholder='Имя'
         minLength='2'
         maxLength='40'
@@ -60,12 +89,12 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser, isSaving }) {
         className='popup__input-error popup__input-error_number_one'
       ></span>
       <input
-        onChange={handleChangeDescription}
+        onChange={handleChange}//Description}
         defaultValue={currentUser.about}
         id='job'
         className='popup__input popup__input_field_job'
         type='text'
-        name='Job'
+        name='about'
         placeholder='Профессиональная деятельность'
         minLength='2'
         maxLength='200'
