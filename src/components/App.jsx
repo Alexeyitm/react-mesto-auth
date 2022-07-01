@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Switch, Route, useHistory } from 'react-router-dom';
+import { Switch, Route, Redirect, useHistory } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import Main from './Main';
@@ -18,6 +18,7 @@ import { auth } from '../utils/auth';
 import CurrentUserContext from '../context/CurrentUserContext';
 
 function App() {
+
   const history = useHistory();
 
   const [currentUser, setUser] =  useState({});
@@ -38,10 +39,13 @@ function App() {
       .then(([user, items]) => {
         setUser(user);
         setCards(items);
-        tokenCheck();
       })
       .catch((err) => console.log(err));
   }, []);
+
+  useEffect(() => {
+    checkToken()
+  }, [])
 
   function handleClickEditAvatar() {
     setIsAvatarPopup(true);
@@ -147,9 +151,9 @@ function App() {
   function handleAuthorization(data) {
     auth
       .authorization(data)
-      .then((token) => {
-        if (token){
-          localStorage.setItem('jwt', token);
+      .then((res) => {
+        if (res){
+          localStorage.setItem('jwt', res.token);
           setIsLoggedIn(true);
           history.push('/');
         }
@@ -157,14 +161,14 @@ function App() {
       .catch(err => console.log(err))
   }
 
-  function tokenCheck () {
+  function checkToken () {
     const jwt = localStorage.getItem('jwt');
-    console.log(jwt);
     if (jwt){
       auth
-        .getContent(jwt).then((res) => {
+        .checkToken(jwt).then((res) => {
           if (res){
-            console.log(res)
+            setIsLoggedIn(true);
+            history.push('/');
           }
         }); 
     }
@@ -177,9 +181,7 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
         <div className='content'>
-
           <Header handleSignOut={handleSignOut}/>
-
           <Switch>
             <ProtectedRoute
               exact
@@ -201,13 +203,14 @@ function App() {
             <Route exact path='/signup'>
               <Register handleRegistration={handleRegistration}/>
             </Route>
+            <Route>
+              {loggedIn ? <Redirect to='/'/> : <Redirect to='/signin'/>}
+            </Route>
             <Route path='/*'>
-              <Error />
+              <Error/>
             </Route>
           </Switch>
-
-          <Footer />
-
+          <Footer/>
           <EditAvatarPopup 
             isOpen={isEditAvatarPopupOpen} 
             onClose={closeAllPopups}

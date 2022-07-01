@@ -25,6 +25,7 @@ class Auth {
     return fetch(`${this._baseUrl}/signin`, {
       method: 'POST',
       headers: {
+        'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify( {password, email} )
@@ -32,15 +33,17 @@ class Auth {
     .then(res => this._getJSON(res));
   };
   
-  getContent(token) {
+  checkToken(token) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'GET',
       headers: {
+        'Accept': 'application/json',
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,
       }
     })
-    .then(res => this._getJSON(res));
+    .then(res => this._getJSON(res))
+    .then(response => response)
   }
 };
 
