@@ -14,7 +14,7 @@ import AddPlacePopup from './AddPlacePopup';
 import DeleteCardPopup from  './DeleteCardPopup';
 import ProtectedRoute from './ProtectedRoute';
 import { api } from '../utils/api';
-import { register } from '../utils/auth';
+import { authorize, register, getContent } from '../utils/auth';
 import CurrentUserContext from '../context/CurrentUserContext';
 
 function App() {
@@ -38,6 +38,7 @@ function App() {
       .then(([user, items]) => {
         setUser(user);
         setCards(items);
+        tokenCheck();
       })
       .catch((err) => console.log(err));
   }, []);
@@ -118,18 +119,45 @@ function App() {
     .finally(closeAllPopups);
   }
 
-  function registration(data) {
+  function handleRegistration(data) {
     register(data).then((res) => {
       if(res){
         history.push('/signin');
-        setIsRegistration(true)
+        setIsRegistration(true);
       } else {
-        setIsRegistration(false)
+        setIsRegistration(false);
       }
-      setIsInfoPopup(true)
     })
+    .finally(setIsInfoPopup(true))
     .catch((err) => console.log(err))
   }
+  
+  function handleAuthorization(data) {
+    authorize(data).then((token) => {
+      if (token){
+        localStorage.setItem('jwt', token);
+        console.log(localStorage.getItem('jwt'))
+        setIsLoggedIn(true);
+        history.push('/');
+      }
+    })
+    .catch(err => console.log(err))
+  }
+
+  function tokenCheck () {
+    const jwt = localStorage.getItem('jwt');
+    console.log(jwt);
+    getContent(jwt).then(data => console.log(data))
+    //if (jwt){
+    //  getContent(jwt).then((res) => {
+    //    if (res){
+    //      console.log(res)
+    //      
+    //    }
+    //  }); 
+    //}
+  } 
+
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -153,10 +181,10 @@ function App() {
               setCards={setCards}
             />
             <Route exact path='/signin'>
-              <Login />
+              <Login handleAuthorization={handleAuthorization}/>
             </Route>
             <Route exact path='/signup'>
-              <Register registration={registration}/>
+              <Register handleRegistration={handleRegistration}/>
             </Route>
             <Route path='/*'>
               <Error />

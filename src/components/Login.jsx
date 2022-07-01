@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function Login() {
+function Login( {handleAuthorization} ) {
 
   const [data, setData] = useState({
     email: '',
@@ -17,7 +17,7 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(data)
+    handleAuthorization(data)
   }
 
   return (

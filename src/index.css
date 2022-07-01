@@ -79,14 +79,14 @@
 @import url(./blocks/auth/__text/auth__text.css);
 @import url(./blocks/auth/__link/auth__link.css);
 
-/* Infotool */
-@import url(./blocks/infotool/infotool.css);
-@import url(./blocks/infotool/_opened/infotool_opened);
-@import url(./blocks/infotool/__background/infotool__background.css);
-@import url(./blocks/infotool/__container/infotool__container.css);
-@import url(./blocks/infotool/__button-close/infotool__button-close.css);
-@import url(./blocks/infotool/__img/infotool__img.css);
-@import url(./blocks/infotool/__text/infotool__text.css);
+/* Popup-info */
+@import url(./blocks/popup-info/popup-info.css);
+@import url(./blocks/popup-info/_opened/popup-info_opened.css);
+@import url(./blocks/popup-info/__background/popup-info__background.css);
+@import url(./blocks/popup-info/__container/popup-info__container.css);
+@import url(./blocks/popup-info/__button-close/popup-info__button-close.css);
+@import url(./blocks/popup-info/__img/popup-info__img.css);
+@import url(./blocks/popup-info/__text/popup-info__text.css);
 
 /* Error */
 @import url(./blocks/error/error.css);

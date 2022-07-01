@@ -1,4 +1,4 @@
-.infotool__text {
+.popup-info__text {
   margin: 32px auto 0;
   font-style: normal;
   font-weight: 900;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 1280px) {
-  .infotool__text {
+  .popup-info__text {
     margin-top: calc(40px + (32 - 40) * (100vw - 320px) / (1280 - 320));
     font-size: calc(20px + (24 - 20) * (100vw - 320px) / (1280 - 320));
     line-height: calc(24px + (29 - 24) * (100vw - 320px) / (1280 - 320));
@@ -17,7 +17,7 @@
 }
 
 @media screen and (max-width: 320px) {
-  .infotool__text {
+  .popup-info__text {
     margin-top: 32px;
     font-size: 20px;
     line-height: 24px;

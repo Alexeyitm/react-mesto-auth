@@ -1,4 +1,4 @@
-.infotool__container {
+.popup-info__container {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -12,14 +12,14 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 1280px) {
-  .infotool__container {
+  .popup-info__container {
     width: calc(280px + (430 - 280) * (100vw - 320px) / (1280 - 320));
     height: calc(308px + (330 - 308) * (100vw - 320px) / (1280 - 320));
   }
 }
 
 @media screen and (max-width: 320px) {
-  .infotool__container {
+  .popup-info__container {
     width: 280px;
     height: 308px;
   }

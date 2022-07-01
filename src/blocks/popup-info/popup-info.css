@@ -1,8 +1,10 @@
-.infotool {
-  display: none;
+.popup-info {
   width: 100vw;
   height: 100vh;
   position: absolute;
   top: 0;
   left: 0;
+  opacity: 0;
+  transition: all 0.3s ease-in;
+  z-index: -1;
 }

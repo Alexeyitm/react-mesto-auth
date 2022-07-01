@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function Register({ registration }) {
+function Register({ handleRegistration }) {
 
   const [data, setData] = useState({
     email: '',
@@ -18,7 +18,7 @@ function Register({ registration }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    registration(data);
+    handleRegistration(data);
   }
 
   return (
