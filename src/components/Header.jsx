@@ -1,14 +1,11 @@
-import { useState } from 'react';
+import React from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 import logo from '../image/Vector.svg';
 
-function Header({ handleSignOut, userEmail }) {
-
-  const [isOpenBurgerMenu, setIsOpenBurgerMenu] = useState(false);
+  function Header({ handleSignOut, userEmail, handleClickBurgerMenu, isOpenBurgerMenu }) {
 
   const handleClick = () => {
-    setIsOpenBurgerMenu(!isOpenBurgerMenu);
-    console.log(isOpenBurgerMenu)
+    handleClickBurgerMenu()
   }
 
   return (

@@ -30,10 +30,10 @@ function App() {
   const [isDeleteCardPopupOpen, deleteIsCardPopup] = useState({isOpen: false, card: {}});
   const [selectedCard, setIsSelectedCard] = useState({});
   const [isSaving, setIsSaving] = useState(false);
-
   const [isRegistration, setIsRegistration] = useState(false);
   const [loggedIn, setIsLoggedIn] = useState(false);
   const [userEmail, setIsUserEmail] = useState('');
+  const [isOpenBurgerMenu, setIsOpenBurgerMenu] = useState(false);
 
   useEffect(() => {
     Promise.all([api.getUser(), api.getCards()])
@@ -62,6 +62,10 @@ function App() {
 
   const handleCardClick = (card) => {
     setIsSelectedCard(card);
+  }
+
+  const handleClickBurgerMenu = () => {
+    setIsOpenBurgerMenu(!isOpenBurgerMenu)
   }
 
   const closeAllPopups = () => {
@@ -167,7 +171,6 @@ function App() {
             setIsLoggedIn(true);
             history.push('/');
             setIsUserEmail(res.data.email)
-            console.log(res.data.email)
           }
         }); 
     }
@@ -189,6 +192,8 @@ function App() {
           <Header
             userEmail={userEmail}
             handleSignOut={handleSignOut}
+            handleClickBurgerMenu={handleClickBurgerMenu}
+            isOpenBurgerMenu={isOpenBurgerMenu}
           />
 
           <Switch>
