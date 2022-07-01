@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, useHistory } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import Main from './Main';
@@ -7,24 +7,30 @@ import Login from './Login';
 import Register from './Register';
 import Error from './Error';
 import ImagePopup from './ImagePopup';
+import InfoPopup from './InfoPopup';
 import EditAvatarPopup from './EditAvatarPopup';
 import EditProfilePopup from './EditProfilePopup';
 import AddPlacePopup from './AddPlacePopup';
 import DeleteCardPopup from  './DeleteCardPopup';
 import ProtectedRoute from './ProtectedRoute';
 import { api } from '../utils/api';
+import { register } from '../utils/auth';
 import CurrentUserContext from '../context/CurrentUserContext';
 
 function App() {
+  const history = useHistory();
+
   const [currentUser, setUser] =  useState({});
   const [currentCards, setCards] =  useState([]);
   const [isEditAvatarPopupOpen, setIsAvatarPopup] = useState(false);
   const [isEditProfilePopupOpen, setIsProfilePopup] = useState(false);
   const [isAddPlacePopupOpen, setIsPlacePopup] = useState(false);
+  const [isInfoPopupOpen, setIsInfoPopup] = useState(false);
   const [isDeleteCardPopupOpen, deleteIsCardPopup] = useState({isOpen: false, card: {}});
   const [selectedCard, setIsSelectedCard] = useState({});
   const [isSaving, setIsSaving] = useState(false);
 
+  const [isRegistration, setIsRegistration] = useState(false);
   const [loggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -60,6 +66,7 @@ function App() {
     setIsAvatarPopup(false);
     setIsProfilePopup(false);
     setIsPlacePopup(false);
+    setIsInfoPopup(false);
     deleteIsCardPopup({isOpen: false, card: {}});
     setIsSelectedCard({});
     setTimeout(() => {
@@ -111,6 +118,19 @@ function App() {
     .finally(closeAllPopups);
   }
 
+  function registration(data) {
+    register(data).then((res) => {
+      if(res){
+        history.push('/signin');
+        setIsRegistration(true)
+      } else {
+        setIsRegistration(false)
+      }
+      setIsInfoPopup(true)
+    })
+    .catch((err) => console.log(err))
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
         <div className='content'>
@@ -136,12 +156,11 @@ function App() {
               <Login />
             </Route>
             <Route exact path='/signup'>
-              <Register />
+              <Register registration={registration}/>
             </Route>
             <Route path='/*'>
               <Error />
             </Route>
-
           </Switch>
 
           <Footer />
@@ -175,6 +194,10 @@ function App() {
             card={selectedCard} 
             onClose={closeAllPopups} 
           />
+          <InfoPopup
+            isOpen={isInfoPopupOpen}
+            onClose={closeAllPopups}
+            isRegistration={isRegistration}/>
         </div>
     </CurrentUserContext.Provider>
   );

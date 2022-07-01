@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import InfoToolPopup from './InfoToolPopup';
 
-function Register() {
+function Register({ registration }) {
 
   const [data, setData] = useState({
     email: '',
-    password: '',
+    password: ''
   });
 
   const handleChange = (e) => {
@@ -18,13 +17,12 @@ function Register() {
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log(data)
+    e.preventDefault();
+    registration(data);
   }
 
   return (
     <div className='auth'>
-      {/*<InfoToolPopup isRegistration={true}/>*/}
       <h2 className='auth__title'>Регистрация</h2>
       <form
         onSubmit={handleSubmit}

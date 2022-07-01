@@ -81,6 +81,7 @@
 
 /* Infotool */
 @import url(./blocks/infotool/infotool.css);
+@import url(./blocks/infotool/_opened/infotool_opened);
 @import url(./blocks/infotool/__background/infotool__background.css);
 @import url(./blocks/infotool/__container/infotool__container.css);
 @import url(./blocks/infotool/__button-close/infotool__button-close.css);
