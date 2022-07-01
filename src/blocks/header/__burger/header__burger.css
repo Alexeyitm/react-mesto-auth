@@ -6,3 +6,38 @@
   box-shadow: 0 2px 5px rgba(255, 101, 47, .2);
   transition: all .5s ease-in-out;
 }
+
+.header__burger::before,
+.header__burger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 24px;
+  height: 3px;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 2px 5px rgba(255, 101, 47, .2);
+  transition: all .5s ease-in-out;
+}
+
+.header__burger::before {
+  transform: translateY(-10px);
+}
+
+.header__burger::after {
+  transform: translateY(10px);
+}
+
+.header__menu.open .header__burger {
+  transform: translate(-50px);
+  background: transparent;
+  box-shadow: none;
+}
+
+.header__menu.open .header__burger::before {
+  transform: rotate(45deg) translate(35px, -35px);
+}
+
+.header__menu.open .header__burger::after {
+  transform: rotate(-45deg) translate(35px, 35px);
+}

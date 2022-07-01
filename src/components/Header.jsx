@@ -1,8 +1,15 @@
-import React from 'react';
+import { useState } from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 import logo from '../image/Vector.svg';
 
 function Header({ handleSignOut, userEmail }) {
+
+  const [isOpenBurgerMenu, setIsOpenBurgerMenu] = useState(false);
+
+  const handleClick = () => {
+    setIsOpenBurgerMenu(!isOpenBurgerMenu);
+    console.log(isOpenBurgerMenu)
+  }
 
   return (
     <header className='header'>
@@ -27,7 +34,10 @@ function Header({ handleSignOut, userEmail }) {
             to='/sign-in' 
             onClick={handleSignOut}
           >Выйти</Link>
-          <button className='header__menu'>
+          <button 
+            className={`header__menu ${isOpenBurgerMenu && 'open'}`}
+            onClick={handleClick}
+          >
             <div className='header__burger'></div>
           </button>
         </Route>
