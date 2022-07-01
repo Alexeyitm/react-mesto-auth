@@ -1,0 +1,17 @@
+.header__menu {
+  display: none;
+  width: 24px;
+  height: 24px;
+  border: 0;
+  padding: 0;
+  margin-right: 30px;
+  background: inherit;
+  cursor: pointer;
+  transition: all .5s ease-in-out;
+}
+
+@media screen and (max-width: 540px) {
+  .header__menu {
+    display: block;
+  }
+}

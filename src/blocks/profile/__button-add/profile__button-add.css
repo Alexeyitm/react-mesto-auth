@@ -6,8 +6,8 @@
   position: relative;
   display: flex;
   align-self: center;
-  background-color: #000000;
-  border: 2px solid #FFFFFF;
+  background-color: #000;
+  border: 2px solid #fff;
   box-sizing: border-box;
   border-radius: 2px;
   cursor: pointer;

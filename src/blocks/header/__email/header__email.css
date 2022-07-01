@@ -5,7 +5,13 @@
   font-size: 18px;
   line-height: 22px;
   text-align: right;
-  color: #FFFFFF;
+  color: #fff;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 540px) {
+  .header__email {
+    display: none;
+  }
 }

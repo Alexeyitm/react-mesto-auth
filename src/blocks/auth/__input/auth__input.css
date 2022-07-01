@@ -1,15 +1,15 @@
 .auth__input {
   height: 14px;
   margin-top: 30px;
-  padding: 0 0 10px;
   border: 0;
-  border-bottom: 2px solid #CCCCCC;
+  border-bottom: 2px solid #ccc;
+  padding: 0 0 10px;
   font-style: normal;
   font-size: 14px;
   font-weight: normal;
-  color: #FFFFFF;
+  color: #fff;
   line-height: 17px;
-  background-color: #000000;
+  background-color: #000;
 }
 
 .auth__input:nth-child(1) {

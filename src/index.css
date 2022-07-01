@@ -13,6 +13,9 @@
 @import url(./blocks/header/__logo/header__logo.css);
 @import url(./blocks/header/__email/header__email.css);
 @import url(./blocks/header/__link/header__link.css);
+@import url(./blocks/header/__link/_sign-out/header__link_sign-out.css);
+@import url(./blocks/header/__menu/header__menu.css);
+@import url(./blocks/header/__burger/header__burger.css);
 
 /* Profile */
 @import url(./blocks/profile/profile.css);

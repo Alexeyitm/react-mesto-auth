@@ -6,8 +6,8 @@
   position: relative;
   display: flex;
   align-self: flex-end;
-  background-color: #000000;
-  border: 1px solid #FFFFFF;
+  background-color: #000;
+  border: 1px solid #fff;
   box-sizing: border-box;
   cursor: pointer;
 }

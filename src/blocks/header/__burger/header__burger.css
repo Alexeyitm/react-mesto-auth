@@ -1,0 +1,8 @@
+.header__burger {
+  width: 24px;
+  height: 3px;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 2px 5px rgba(255, 101, 47, .2);
+  transition: all .5s ease-in-out;
+}
