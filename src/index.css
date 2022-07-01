@@ -92,6 +92,12 @@
 @import url(./blocks/popup-info/__img/popup-info__img.css);
 @import url(./blocks/popup-info/__text/popup-info__text.css);
 
+/* Burger */
+@import url(./blocks/burger/burger.css);
+@import url(./blocks/burger/_opened/burger_opened.css);
+@import url(./blocks/burger/__email/burger__email.css);
+@import url(./blocks/burger/__link/burger__link.css);
+
 /* Error */
 @import url(./blocks/error/error.css);
 @import url(./blocks/error/__title/error__title.css);

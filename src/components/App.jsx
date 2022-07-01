@@ -12,6 +12,7 @@ import EditAvatarPopup from './EditAvatarPopup';
 import EditProfilePopup from './EditProfilePopup';
 import AddPlacePopup from './AddPlacePopup';
 import DeleteCardPopup from  './DeleteCardPopup';
+import BurgerMenu from  './BurgerMenu';
 import ProtectedRoute from './ProtectedRoute';
 import { api } from '../utils/api';
 import { auth } from '../utils/auth';
@@ -174,7 +175,7 @@ function App() {
           }
         }); 
     }
-  }, [history])
+  }, [history, setIsUserEmail])
 
   useEffect(() => {
     checkToken()
@@ -188,6 +189,13 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
         <div className='content'>
+
+          <BurgerMenu
+            userEmail={userEmail}
+            handleSignOut={handleSignOut}
+            handleClickBurgerMenu={handleClickBurgerMenu}
+            isOpenBurgerMenu={isOpenBurgerMenu}
+          />
 
           <Header
             userEmail={userEmail}
