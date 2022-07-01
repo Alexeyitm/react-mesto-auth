@@ -47,27 +47,27 @@ function App() {
     checkToken()
   }, [])
 
-  function handleClickEditAvatar() {
+  const handleClickEditAvatar = () => {
     setIsAvatarPopup(true);
   }
 
-  function handleClickEditProfile() {
+  const handleClickEditProfile = () => {
     setIsProfilePopup(true);
   }
 
-  function handleClickAddPlace() {
+  const handleClickAddPlace = () => {
     setIsPlacePopup(true);
   }
 
-  function handleClickDeleteCard(card) {
+  const handleClickDeleteCard = (card) => {
     deleteIsCardPopup({isOpen: true, card: card});  
   }
 
-  function handleCardClick(card) {
+  const handleCardClick = (card) => {
     setIsSelectedCard(card);
   }
 
-  function closeAllPopups() {
+  const closeAllPopups = () => {
     setIsAvatarPopup(false);
     setIsProfilePopup(false);
     setIsPlacePopup(false);
@@ -79,7 +79,7 @@ function App() {
     }, 500);
   }
 
-  function handleCardLike(card) {
+  const handleCardLike = (card) => {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
     api
       .toggleLike(card._id, isLiked)
@@ -89,7 +89,7 @@ function App() {
       .catch((err) => console.log(err))
   }
 
-  function handleUpdateAvatar(picture) {
+  const handleUpdateAvatar = (picture) => {
     setIsSaving(true);
     api
       .setAvatar(picture)
@@ -100,7 +100,7 @@ function App() {
       .finally(closeAllPopups);
   }
 
-  function handleUpdateUser(user) {
+  const handleUpdateUser = (user) => {
     setIsSaving(true);
     api
       .setUser(user)
@@ -111,7 +111,7 @@ function App() {
       .finally(closeAllPopups);
   }
 
-  function handleAddPlaceSubmit(card) {
+  const handleAddPlaceSubmit = (card) => {
     setIsSaving(true);
     api
       .setCard(card)
@@ -122,7 +122,7 @@ function App() {
       .finally(closeAllPopups);
   }
 
-  function handleCardDelete(card) {
+  const handleCardDelete = (card) => {
     setIsSaving(true);
     api
       .deleteCard(card._id)
@@ -133,7 +133,7 @@ function App() {
       .finally(closeAllPopups);
   }
 
-  function handleRegistration(data) {
+  const handleRegistration = (data) => {
     auth
       .registration(data)
       .then((res) => {
@@ -148,7 +148,7 @@ function App() {
       .catch((err) => console.log(err))
   }
   
-  function handleAuthorization(data) {
+  const handleAuthorization = (data) => {
     auth
       .authorization(data)
       .then((res) => {
@@ -161,7 +161,7 @@ function App() {
       .catch(err => console.log(err))
   }
 
-  function checkToken () {
+  const checkToken = () => {
     const jwt = localStorage.getItem('jwt');
     if (jwt){
       auth
@@ -174,7 +174,7 @@ function App() {
     }
   }
 
-  function handleSignOut() {
+  const handleSignOut = () => {
     localStorage.removeItem('jwt');
   }
 
