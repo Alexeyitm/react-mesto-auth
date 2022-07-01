@@ -3,6 +3,7 @@ import success from '../image/yes.png'
 import wrong from '../image/no.png'
 
 function InfoPopup({ isOpen, onClose, isRegistration }) {
+  
   return (
     <div className={`popup-info ${isOpen && 'popup-info_opened'}`}>
       <div className='popup-info__background'></div>

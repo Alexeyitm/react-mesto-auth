@@ -206,14 +206,14 @@ function App() {
               handleCardClick={handleCardClick}
               setCards={setCards}
             />
-            <Route exact path='/signin'>
+            <Route exact path='/sign-in'>
               <Login handleAuthorization={handleAuthorization}/>
             </Route>
-            <Route exact path='/signup'>
+            <Route exact path='/sign-up'>
               <Register handleRegistration={handleRegistration}/>
             </Route>
             <Route>
-              {loggedIn ? <Redirect to='/'/> : <Redirect to='/signin'/>}
+              {loggedIn ? <Redirect to='/'/> : <Redirect to='/sign-in'/>}
             </Route>
             <Route path='/*'>
               <Error/>

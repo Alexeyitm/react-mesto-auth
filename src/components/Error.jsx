@@ -1,6 +1,7 @@
 import React from 'react';
 
 function Error() {
+  
   return (
     <article className='error'>
       <h2 className='error__title'>Ошибка!</h2>

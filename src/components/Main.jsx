@@ -3,6 +3,7 @@ import Card from './Card';
 import CurrentUserContext from '../context/CurrentUserContext';
 
 function Main({ cards, onEditAvatar, onEditProfile, onAddPlace, onCardLike, handleCardClick, onCardDelete }) {
+  
   const user = useContext(CurrentUserContext);
 
   return (

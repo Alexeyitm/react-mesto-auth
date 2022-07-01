@@ -53,7 +53,8 @@ function Register({ handleRegistration }) {
         type='submit'
       >Зарегистрироваться</button>
       </form>
-      <p className='auth__text'>Уже зарегистрированы? 
+      <p className='auth__text'>
+        Уже зарегистрированы? 
         <Link className='auth__link' to='/signin'> Войти</Link>
       </p>
     </div>

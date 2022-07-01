@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react';
 import PopupWithForm from './PopupWithForm';
 
 function AddPlacePopup({ isOpen, onClose, onAddPlace, isSaving }) {
+  
   const [place, setPlace] =  useState('');
   const [link, setLink] =  useState('');
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
     onAddPlace({
       place: place,
@@ -20,11 +21,11 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace, isSaving }) {
     }, 500);
   }, [isOpen]);
 
-  function handleChangePlace(e) {
+  const handleChangePlace = (e) => {
     setPlace(e.target.value);
   }
 
-  function handleChangeLink(e) {
+  const handleChangeLink = (e) => {
     setLink(e.target.value);
   }
 

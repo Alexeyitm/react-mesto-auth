@@ -3,36 +3,8 @@ import PopupWithForm from './PopupWithForm';
 import CurrentUserContext from '../context/CurrentUserContext';
 
 function EditProfilePopup({ isOpen, onClose, onUpdateUser, isSaving }) {
-  const currentUser = useContext(CurrentUserContext);
   
-  //const [name, setName] =  useState('');
-  //const [description, setDescription] =  useState('');
-//
-  //useEffect(() => {
-  //  setName(currentUser.name);
-  //  setDescription(currentUser.about);
-  //}, [currentUser]);
-//
-  //function handleSubmit(e) {
-  //  e.preventDefault();
-  //  onUpdateUser({
-  //    name,
-  //    about: description,
-  //  });
-  //}
-
-  //useEffect(() => {
-  //  setName('');
-  //  setDescription('');
-  //}, [isOpen]); 
-//
-  //function handleChangeName(e) {
-  //  setName(e.target.value);
-  //}
-//
-  //function handleChangeDescription(e) {
-  //  setDescription(e.target.value);
-  //}
+  const currentUser = useContext(CurrentUserContext);
 
   const [user, setUser] = useState({
     name: '',
@@ -43,7 +15,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser, isSaving }) {
     setUser(currentUser);
   }, [currentUser]);
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
     onUpdateUser(user);
   }
