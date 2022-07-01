@@ -1,0 +1,10 @@
+.header__email {
+  margin: 0;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: right;
+  color: #FFFFFF;
+  margin: 6px 24px 0 auto;
+}

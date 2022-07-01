@@ -185,10 +185,12 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
         <div className='content'>
+
           <Header
             userEmail={userEmail}
             handleSignOut={handleSignOut}
           />
+
           <Switch>
             <ProtectedRoute
               exact
@@ -217,25 +219,30 @@ function App() {
               <Error/>
             </Route>
           </Switch>
+
           <Footer/>
+
           <EditAvatarPopup 
             isOpen={isEditAvatarPopupOpen} 
             onClose={closeAllPopups}
             onUpdateAvatar={handleUpdateAvatar}
             isSaving={isSaving}
           />
+
           <EditProfilePopup 
             isOpen={isEditProfilePopupOpen} 
             onClose={closeAllPopups}
             onUpdateUser={handleUpdateUser}
             isSaving={isSaving}
           />
+
           <AddPlacePopup
             isOpen={isAddPlacePopupOpen}
             onClose={closeAllPopups}
             onAddPlace={handleAddPlaceSubmit}
             isSaving={isSaving}
           />
+
           <DeleteCardPopup
             card={isDeleteCardPopupOpen.card}
             isOpen={isDeleteCardPopupOpen.isOpen}
@@ -243,14 +250,18 @@ function App() {
             deleteCard={handleCardDelete}
             isSaving={isSaving}
           />
+
           <ImagePopup 
             card={selectedCard} 
             onClose={closeAllPopups} 
           />
+
           <InfoPopup
             isOpen={isInfoPopupOpen}
             onClose={closeAllPopups}
-            isRegistration={isRegistration}/>
+            isRegistration={isRegistration}
+          />
+
         </div>
     </CurrentUserContext.Provider>
   );
