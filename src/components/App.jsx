@@ -33,6 +33,7 @@ function App() {
 
   const [isRegistration, setIsRegistration] = useState(false);
   const [loggedIn, setIsLoggedIn] = useState(false);
+  const [userEmail, setIsUserEmail] = useState('');
 
   useEffect(() => {
     Promise.all([api.getUser(), api.getCards()])
@@ -165,6 +166,8 @@ function App() {
           if (res){
             setIsLoggedIn(true);
             history.push('/');
+            setIsUserEmail(res.data.email)
+            console.log(res.data.email)
           }
         }); 
     }
@@ -182,7 +185,10 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
         <div className='content'>
-          <Header handleSignOut={handleSignOut}/>
+          <Header
+            userEmail={userEmail}
+            handleSignOut={handleSignOut}
+          />
           <Switch>
             <ProtectedRoute
               exact
