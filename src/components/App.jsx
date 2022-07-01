@@ -14,7 +14,8 @@ import AddPlacePopup from './AddPlacePopup';
 import DeleteCardPopup from  './DeleteCardPopup';
 import ProtectedRoute from './ProtectedRoute';
 import { api } from '../utils/api';
-import { authorize, register, getContent } from '../utils/auth';
+import { auth } from '../utils/auth';
+//import { authorize, register, getContent } from '../utils/auth';
 import CurrentUserContext from '../context/CurrentUserContext';
 
 function App() {
@@ -77,82 +78,96 @@ function App() {
 
   function handleCardLike(card) {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
-    api.toggleLike(card._id, isLiked).then((newCard) => {
-      setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-    })
-    .catch((err) => console.log(err))
+    api
+      .toggleLike(card._id, isLiked)
+      .then((newCard) => {
+        setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
+      })
+      .catch((err) => console.log(err))
   }
 
   function handleUpdateAvatar(picture) {
     setIsSaving(true);
-    api.setAvatar(picture).then((user) => {
-      setUser(user);
-    })
-    .catch((err) => console.log(err))
-    .finally(closeAllPopups);
+    api
+      .setAvatar(picture)
+      .then((user) => {
+        setUser(user);
+      })
+      .catch((err) => console.log(err))
+      .finally(closeAllPopups);
   }
 
   function handleUpdateUser(user) {
     setIsSaving(true);
-    api.setUser(user).then((user) => {
-      setUser(user);
-    })
-    .catch((err) => console.log(err))
-    .finally(closeAllPopups);
+    api
+      .setUser(user)
+      .then((user) => {
+        setUser(user);
+      })
+      .catch((err) => console.log(err))
+      .finally(closeAllPopups);
   }
 
   function handleAddPlaceSubmit(card) {
     setIsSaving(true);
-    api.setCard(card).then((newCard) => {
-      setCards([newCard, ...currentCards]); 
-    })
-    .catch((err) => console.log(err))
-    .finally(closeAllPopups);
+    api
+      .setCard(card)
+      .then((newCard) => {
+        setCards([newCard, ...currentCards]); 
+      })
+      .catch((err) => console.log(err))
+      .finally(closeAllPopups);
   }
 
   function handleCardDelete(card) {
     setIsSaving(true);
-    api.deleteCard(card._id).then(() => {
-      setCards((state) => state.filter((c) => c._id !== card._id));   
-    })
-    .catch((err) => console.log(err))
-    .finally(closeAllPopups);
+    api
+      .deleteCard(card._id)
+      .then(() => {
+        setCards((state) => state.filter((c) => c._id !== card._id));   
+      })
+      .catch((err) => console.log(err))
+      .finally(closeAllPopups);
   }
 
   function handleRegistration(data) {
-    register(data).then((res) => {
-      if (res){
-        history.push('/signin');
-        setIsRegistration(true);
-      } else {
-        setIsRegistration(false);
-      }
-    })
-    .finally(setIsInfoPopup(true))
-    .catch((err) => console.log(err))
+    auth
+      .registration(data)
+      .then((res) => {
+        if (res){
+          history.push('/signin');
+          setIsRegistration(true);
+        } else {
+          setIsRegistration(false);
+        }
+      })
+      .finally(setIsInfoPopup(true))
+      .catch((err) => console.log(err))
   }
   
   function handleAuthorization(data) {
-    authorize(data).then((token) => {
-      if (token){
-        localStorage.setItem('jwt', token);
-        setIsLoggedIn(true);
-        history.push('/');
-      }
-    })
-    .catch(err => console.log(err))
+    auth
+      .authorization(data)
+      .then((token) => {
+        if (token){
+          localStorage.setItem('jwt', token);
+          setIsLoggedIn(true);
+          history.push('/');
+        }
+      })
+      .catch(err => console.log(err))
   }
 
   function tokenCheck () {
     const jwt = localStorage.getItem('jwt');
     console.log(jwt);
-    getContent(jwt).then(data => console.log(data))
     if (jwt){
-      getContent(jwt).then((res) => {
-        if (res){
-          console.log(res)
-        }
-      }); 
+      auth
+        .getContent(jwt).then((res) => {
+          if (res){
+            console.log(res)
+          }
+        }); 
     }
   }
 
