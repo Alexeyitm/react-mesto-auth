@@ -121,7 +121,7 @@ function App() {
 
   function handleRegistration(data) {
     register(data).then((res) => {
-      if(res){
+      if (res){
         history.push('/signin');
         setIsRegistration(true);
       } else {
@@ -136,7 +136,6 @@ function App() {
     authorize(data).then((token) => {
       if (token){
         localStorage.setItem('jwt', token);
-        console.log(localStorage.getItem('jwt'))
         setIsLoggedIn(true);
         history.push('/');
       }
@@ -148,16 +147,14 @@ function App() {
     const jwt = localStorage.getItem('jwt');
     console.log(jwt);
     getContent(jwt).then(data => console.log(data))
-    //if (jwt){
-    //  getContent(jwt).then((res) => {
-    //    if (res){
-    //      console.log(res)
-    //      
-    //    }
-    //  }); 
-    //}
-  } 
-
+    if (jwt){
+      getContent(jwt).then((res) => {
+        if (res){
+          console.log(res)
+        }
+      }); 
+    }
+  }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
