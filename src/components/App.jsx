@@ -80,6 +80,22 @@ function App() {
     }, 500);
   }
 
+  const isOpen = isEditAvatarPopupOpen || isEditProfilePopupOpen || isAddPlacePopupOpen || selectedCard.link || isInfoPopupOpen
+
+  useEffect(() => {
+    function closeByEscape(evt) {
+      if(evt.key === 'Escape') {
+        closeAllPopups();
+      }
+    }
+    if(isOpen) {
+      document.addEventListener('keydown', closeByEscape);
+      return () => {
+        document.removeEventListener('keydown', closeByEscape);
+      }
+    }
+  }, [isOpen]);
+
   const handleCardLike = (card) => {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
     api
@@ -145,8 +161,11 @@ function App() {
           setIsRegistration(false);
         }
       })
-      .finally(setIsInfoPopup(true))
-      .catch((err) => console.log(err))
+      .finally(() => setIsInfoPopup(true))
+      .catch((err) => {
+        console.log(err);
+        setIsRegistration(false);
+      })
   }
   
   const handleAuthorization = (data) => {
@@ -172,7 +191,8 @@ function App() {
             history.push('/');
             setIsUserEmail(res.data.email)
           }
-        }); 
+        })
+        .catch((err) => console.log(err))
     }
   }, [history])
 
