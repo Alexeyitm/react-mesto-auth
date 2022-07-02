@@ -36,6 +36,7 @@ function Login({ handleAuthorization, setIsUserEmail }) {
           id='email'
           type='email'
           name='email'
+          value={data.email}
           placeholder='Email'
         />
         <input
@@ -44,6 +45,7 @@ function Login({ handleAuthorization, setIsUserEmail }) {
           id='password'
           type='password'
           name='password'
+          value={data.password}
           placeholder='Пароль'
         />
       <button
