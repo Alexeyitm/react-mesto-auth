@@ -6,7 +6,7 @@ class Auth {
       if (res.ok) {
         return res.json();
       }
-      console.log(`Ошибка: ${res.status}`);
+      return Promise.reject(`Ошибка: ${res.status}`);
     }
   }
 
