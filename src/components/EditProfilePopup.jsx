@@ -4,37 +4,36 @@ import CurrentUserContext from '../context/CurrentUserContext';
 
 function EditProfilePopup({ isOpen, onClose, onUpdateUser, isSaving }) {
   
-  const currentUser = useContext(CurrentUserContext);
+  const currentUser = useContext(CurrentUserContext); 
 
-  const [user, setUser] = useState({
-    name: currentUser.name,
-    about: currentUser.about,
+  const [user, setUser] = useState({ 
+    name: '', 
+    about: '', 
   });
 
-  useEffect(() => {
-    setUser(currentUser);
-  }, [currentUser]);
+  useEffect(() => { 
+    setUser(currentUser); 
+  }, [currentUser]); 
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onUpdateUser(user);
-  }
+  const handleSubmit = (e) => { 
+    e.preventDefault(); 
+    onUpdateUser(user); 
+  } 
 
-  useEffect(() => {
-    setUser({
-      name: currentUser.name,
-      about: currentUser.about,
-    });
-  }, [isOpen, currentUser]); 
+  useEffect(() => { 
+    setUser({ 
+      name: currentUser.name, 
+      about: currentUser.about, 
+    }); 
+  }, [isOpen, currentUser]);  
 
-  const handleChange = (e) => {
-    const {name, value} = e.target;
-    console.log(user)
-    setUser({
-      ...user,
-      [name]: value
-    });
-  }
+  const handleChange = (e) => { 
+    const {name, value} = e.target; 
+    setUser({ 
+      ...user, 
+      [name]: value 
+    }); 
+  } 
 
   return (
     <PopupWithForm
@@ -46,8 +45,8 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser, isSaving }) {
       onSubmit={handleSubmit}
     >
       <input
-        onChange={handleChange}//Name}
-        value={user.name}
+        onChange={handleChange}
+        value={user.name || ''}
         id='name'
         className='popup__input popup__input_field_name'
         type='text'
@@ -62,8 +61,8 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser, isSaving }) {
         className='popup__input-error popup__input-error_number_one'
       ></span>
       <input
-        onChange={handleChange}//Description}
-        value={user.about}
+        onChange={handleChange}
+        value={user.about || ''}
         id='job'
         className='popup__input popup__input_field_job'
         type='text'

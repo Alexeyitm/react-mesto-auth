@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import CurrentUserContext from '../context/CurrentUserContext';
 
-function Card({ card, myKey, handleCardClick, onCardLike, onCardDelete }) {
+function Card({ card, handleCardClick, onCardLike, onCardDelete }) {
   
   const user = useContext(CurrentUserContext)
   const isOwn = card.owner._id === user._id;
@@ -22,7 +22,7 @@ function Card({ card, myKey, handleCardClick, onCardLike, onCardDelete }) {
   }
 
   return (
-    <li className='element' key={myKey}>
+    <li className='element'>
       <article className='element__card'>
         <button
           className={cardDeleteButtonClassName}
