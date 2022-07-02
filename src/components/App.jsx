@@ -96,9 +96,9 @@ function App() {
       .setAvatar(picture)
       .then((user) => {
         setUser(user);
+        closeAllPopups();
       })
       .catch((err) => console.log(err))
-      .finally(closeAllPopups);
   }
 
   const handleUpdateUser = (user) => {
@@ -107,9 +107,9 @@ function App() {
       .setUser(user)
       .then((user) => {
         setUser(user);
+        closeAllPopups();
       })
       .catch((err) => console.log(err))
-      .finally(closeAllPopups);
   }
 
   const handleAddPlaceSubmit = (card) => {
@@ -117,10 +117,10 @@ function App() {
     api
       .setCard(card)
       .then((newCard) => {
-        setCards([newCard, ...currentCards]); 
+        setCards([newCard, ...currentCards]);
+        closeAllPopups(); 
       })
       .catch((err) => console.log(err))
-      .finally(closeAllPopups);
   }
 
   const handleCardDelete = (card) => {
@@ -128,10 +128,10 @@ function App() {
     api
       .deleteCard(card._id)
       .then(() => {
-        setCards((state) => state.filter((c) => c._id !== card._id));   
+        setCards((state) => state.filter((c) => c._id !== card._id));
+        closeAllPopups();
       })
       .catch((err) => console.log(err))
-      .finally(closeAllPopups);
   }
 
   const handleRegistration = (data) => {
