@@ -7,8 +7,8 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser, isSaving }) {
   const currentUser = useContext(CurrentUserContext);
 
   const [user, setUser] = useState({
-    name: '',
-    about: '',
+    name: currentUser.name,
+    about: currentUser.about,
   });
 
   useEffect(() => {
@@ -29,6 +29,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser, isSaving }) {
 
   const handleChange = (e) => {
     const {name, value} = e.target;
+    console.log(user)
     setUser({
       ...user,
       [name]: value
@@ -46,7 +47,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser, isSaving }) {
     >
       <input
         onChange={handleChange}//Name}
-        defaultValue={currentUser.name}
+        value={user.name}
         id='name'
         className='popup__input popup__input_field_name'
         type='text'
@@ -62,7 +63,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser, isSaving }) {
       ></span>
       <input
         onChange={handleChange}//Description}
-        defaultValue={currentUser.about}
+        value={user.about}
         id='job'
         className='popup__input popup__input_field_job'
         type='text'
