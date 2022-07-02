@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
-import logo from '../image/Vector.svg';
+import logo from '../images/Vector.svg';
 
   function Header({ handleSignOut, userEmail, handleClickBurgerMenu, isOpenBurgerMenu }) {
 

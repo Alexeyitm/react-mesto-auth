@@ -1,6 +1,6 @@
 import React from 'react';
-import success from '../image/yes.png'
-import wrong from '../image/no.png'
+import success from '../images/yes.png'
+import wrong from '../images/no.png'
 
 function InfoPopup({ isOpen, onClose, isRegistration }) {
   
