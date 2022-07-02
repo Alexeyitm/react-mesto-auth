@@ -5,7 +5,6 @@ import Footer from './Footer';
 import Main from './Main';
 import Login from './Login';
 import Register from './Register';
-import Error from './Error';
 import ImagePopup from './ImagePopup';
 import InfoPopup from './InfoPopup';
 import EditAvatarPopup from './EditAvatarPopup';
@@ -230,9 +229,6 @@ function App() {
             </Route>
             <Route>
               {loggedIn ? <Redirect to='/'/> : <Redirect to='/sign-in'/>}
-            </Route>
-            <Route path='/*'>
-              <Error/>
             </Route>
           </Switch>
 
