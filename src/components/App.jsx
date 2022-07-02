@@ -175,7 +175,7 @@ function App() {
           }
         }); 
     }
-  }, [history, setIsUserEmail])
+  }, [history])
 
   useEffect(() => {
     checkToken()
@@ -220,7 +220,10 @@ function App() {
               setCards={setCards}
             />
             <Route exact path='/sign-in'>
-              <Login handleAuthorization={handleAuthorization}/>
+              <Login 
+                handleAuthorization={handleAuthorization}
+                setIsUserEmail={setIsUserEmail}
+              />
             </Route>
             <Route exact path='/sign-up'>
               <Register handleRegistration={handleRegistration}/>

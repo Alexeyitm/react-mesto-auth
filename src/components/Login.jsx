@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function Login( {handleAuthorization} ) {
+function Login({ handleAuthorization, setIsUserEmail }) {
 
   const [data, setData] = useState({
     email: '',
@@ -13,6 +13,7 @@ function Login( {handleAuthorization} ) {
       ...data,
       [name]: value
     });
+    setIsUserEmail(data.email);
   }
 
   const handleSubmit = (e) => {
