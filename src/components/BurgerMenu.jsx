@@ -7,8 +7,6 @@ function BurgerMenu({ userEmail, handleSignOut, handleClickBurgerMenu, isOpenBur
     handleSignOut();
     handleClickBurgerMenu();
   }
-
-  console.log(userEmail)
   
   return (
     <div className={`burger ${isOpenBurgerMenu && 'burger_opened'}`}>

@@ -140,7 +140,7 @@ function App() {
       .registration(data)
       .then((res) => {
         if (res){
-          history.push('/signin');
+          history.push('/sign-in');
           setIsRegistration(true);
         } else {
           setIsRegistration(false);
@@ -178,7 +178,7 @@ function App() {
   }, [history])
 
   useEffect(() => {
-    checkToken()
+    checkToken();
   }, [checkToken])
 
 
