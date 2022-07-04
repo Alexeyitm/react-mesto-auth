@@ -357,5 +357,5 @@ template {
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
   input:-webkit-autofill:active {
-    transition: background-color 5000s ease-in-out;
+    transition: all 5000s ease-in-out;
   }
