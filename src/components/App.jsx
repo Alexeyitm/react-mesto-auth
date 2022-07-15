@@ -83,8 +83,8 @@ function App() {
   const isOpen = isEditAvatarPopupOpen || isEditProfilePopupOpen || isAddPlacePopupOpen || selectedCard.link || isInfoPopupOpen
 
   useEffect(() => {
-    function closeByEscape(evt) {
-      if(evt.key === 'Escape') {
+    function closeByEscape(e) {
+      if(e.key === 'Escape') {
         closeAllPopups();
       }
     }

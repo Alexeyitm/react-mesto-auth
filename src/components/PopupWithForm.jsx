@@ -1,8 +1,15 @@
 import React from 'react';
 
 function PopupWithForm({ name, title, textButton, isOpen, onClose, onSubmit, children }) {
+
+  const handleClickOverlay = (e) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  }
+
   return (
-    <div className={`popup popup_${name} ${isOpen && 'popup_opened'}`}>
+    <div className={`popup popup_${name} ${isOpen && 'popup_opened'}`} onClick={handleClickOverlay}>
       <div
         className={`popup__container popup__container_${name} container`}
       >
